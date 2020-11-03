@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+:root {
+    --light-color: #ecf0f1;
+    --dark-color: #000;
+    --success-color: #2ecc71;
+    --background-color: #34495e;
+    --black-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: url(/home/mhacs/Desktop/Tic\ Tac\ Toe\ Game/solid);
+    color: var(--light-color);
+}
+
+button {
+    padding: 0;
+    border: none;
+    color: inherit;
+    background-color: transparent;
+}
+
+.btn {
+    display: inline-block;
+    border: solid 1px transparent;
+    border-radius: 0.5em;
+    padding: 0.6em 1.5em;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+        background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn:focus,
+input:focus {
+    outline: none;
+    border-color: var(--dark-color);
+    box-shadow: var(--black-shadow);
+}
+
+.btn:hover {
+    color: var(--light-color);
+    border-color: currentColor;
+    background-color: transparent;
+}
+
+.container {
+    margin: 4rem auto;
+    display: grid;
+    place-items: center;
+}
+
+label {
+    display: block;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+input {
+    display: block;
+    background-color: var(--light-color);
+    font-size: 1.2rem;
+    width: 100%;
+    border: 1px solid lightgrey;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input:hover {
+    border-color: var(--dark-color);
+}
+
+.column-span-all {
+    grid-column: 1 / -1;
+}
+
+.gameboard {
+    width: 30vw;
+    height: 30vw;
+    max-width: 600px;
+    max-height: 600px;
+    margin-bottom: 3rem;
+    background-color: var(--light-color);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.gameboard > div {
+    font-family: 'Bungee', cursive;
+    color: var(--dark-color);
+    display: grid;
+    place-items: center;
+    border: 2px solid black;
+    font-size: 7rem;
+}
+
+.btn-grid,
+.form-grid {
+    display: grid;
+    grid-gap: 15px;
+}
+
+.btn-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.form-grid {
+    grid-template-areas: "input1 input2"
+                         "btn1    btn2";
+}
+
+.form-grid label:first-of-type {
+    grid-area: input1;
+}
+
+.form-grid label:nth-of-type(2) {
+    grid-area: input2;
+}
+
+.form-grid button:first-of-type {
+    grid-area: btn1;
+}
+
+.form-grid button:nth-of-type(2) {
+    grid-area: btn2;
+}
+
+.announcer {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.toggle-content {
+    display: none;
+}
+
+.toggle-content.is-visible {
+    display: block;
+}
+
+.highlight {
+    background-color: var(--success-color);
+}
+
+.info-section {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-section > p {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.github-link {
+    transition: 0.3s;
+}
+
+.github-link:hover {
+    filter: invert(30%);
+    transform: scale(1.1);
+}
+
+@media only screen and (max-width: 650px) {
+    .container {
+        margin: 2rem;
+    }
+
+    .gameboard > div {
+        font-size: 18vw;
+    }
+
+    .btn-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .column-span-all {
+        grid-column: initial;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .btn-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .announcer {
+        font-size: 2rem;
+    }
+
+    .form-grid {
+        grid-template-areas: "input1"
+                             "input2"
+                             "btn1"
+                             "btn2";
+    }
+}
+
+@media only screen and (max-height: 800px) {
+    .form-grid {
+        grid-template-areas: "btn1"
+                             "btn2"
+                             "input1"
+                             "input2";
+    }
+}

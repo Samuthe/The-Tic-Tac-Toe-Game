@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" type="text/css" href="/home/mhacs/Desktop/Tic Tac Toe Game/style.css">
+    <script defer src="/home/mhacs/Desktop/Tic Tac Toe Game/main.js"></script>
+</head>
+
+<div class="info-section">
+    <p>Created by Sam</p>
+</div>
+
+<body>
+    <main class="container">
+        <div class="gameboard">
+            <div data-index="0"></div>
+            <div data-index="1"></div>
+            <div data-index="2"></div>
+            <div data-index="3"></div>
+            <div data-index="4"></div>
+            <div data-index="5"></div>
+            <div data-index="6"></div>
+            <div data-index="7"></div>
+            <div data-index="8"></div>
+        </div>
+        <h1 class="announcer toggle-content">Winner!</h1>
+        <div class="toggle-content is-visible" id="mode-select-btns">
+            <div class="btn-grid">
+                <button class="btn" data-mode="sp" data-difficulty="easy">Easy</button>
+                <button class="btn" data-mode="sp" data-difficulty="medium">Medium</button>
+                <button class="btn" data-mode="sp" data-difficulty="impossible">Impossible</button>
+                <button class="btn column-span-all" data-mode="mp">Multiplayer</button>
+            </div>
+        </div>
+        <form class="toggle-content" id="game-form" autocomplete="off">
+            <div class="form-grid">
+                <label for="p1-name-input" class="toggle-content">Player 1
+                    <input type="text" id="p1-name-input" maxlength="10">
+                </label>
+                <label for="p2-name-input" class="toggle-content">Player 2
+                    <input type="text" id="p2-name-input" maxlength="10">
+                </label>
+                <button type="button" class="btn" id="start-btn">Start game</button>
+                <button type="button" class="btn toggle-content is-visible" id="back-btn">Back</button>
+            </div>
+        </form>
+        </div>
+    </main>
+</body>
+
+</html>
